@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        NODE_VERSION: 18
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./:/app
+      # - /app/node_modules
+    environment:
+      - VITE_HOST=0.0.0.0
+      - VITE_PORT=5173
+    command: 'npm run dev'
